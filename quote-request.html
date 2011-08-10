@@ -1,0 +1,87 @@
+<html>
+<head>
+	<script src="js/json2.js"></script>
+	<script src="js/functions.js"></script>
+	<script>
+		var myShip = {
+				"auth":{
+						"key":"your-key",
+						"token":"your-token",
+						"mode":"test",
+						"ref":""
+						},
+				"action":"quote",
+				"ship":{
+						"type":"p",
+						"date":"YYYY-MM-DD",
+						"org":{
+								"company":"",
+								"name":"",
+								"address":"",
+								"city":"",
+								"division":"",
+								"postal":"",
+								"country":"US",
+								"email":"",
+								"phone":""
+								},
+						"dest":{
+								"company":"",
+								"name":"",
+								"address":"",
+								"address2":"",
+								"city":"",
+								"division":"",
+								"postal":"",
+								"country":"US",
+								"email":"",
+								"phone":""
+								},
+						"package":{
+									"weight":"",
+									"depth":"",
+									"width":"",
+									"height":"",
+									"contents":"",
+									"note":""
+									},
+						"duti":{
+								"is":true,
+								"value":"",
+								"party":"r",
+								"filing":{
+										"type":"ftr",
+										"ftsr":"3037(a)",
+										"itn":"ftr",
+										"ein":"ftr"
+										}
+								},
+						"ins":{
+								"use":false,
+								"value":0
+								}
+						}
+				};
+	
+		/*
+		Build url
+		*/
+		
+		var myShipUrl = "http://usa.api.inxpressusa.com/api/json.php?json=" + JSON.stringify(myShip);
+		
+		console.log("Sending call to: " + myShipUrl);
+		var myShipResults = httpGet(myShipUrl);
+		
+		console.log(myShipResults);
+		
+		myShipData = JSON.parse(myShipResults);
+		console.log(myShipData);
+	</script>
+</head>
+<body>
+	<div>
+		Package was quoted at $ <script>document.write(myShipData.res.charge);</script>
+	</div>
+	
+</body>
+</html>
