@@ -1,4 +1,13 @@
-this repo will be uploaded and available very soon.
+This is currently a very simple example but it works.
 
-Thank You,
+It currently is only setup to show the price on the page from quoting the shipment but there is more that you can display if you want. you can check the console as it runs to see data format or check the iShip API documentation.
+
+
+
+This example code for a javascript connection into the iShip API uses code from 
+https://github.com/douglascrockford/JSON-js/
+
+
+
+Thanks,
 	Jared S.
